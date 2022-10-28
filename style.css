@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+h2 {
+color: #0c2340;
+  
+}
+h1 {
+color: #bd1f2d
+  
+}
+h3 {
+color:#64ccc9
+  
+}
+label{
+  font-weight: bold;
+  display:inline-block;
+  width: 100px;
+  text-align:right;
+}
+
+input {
+  margin-bottom: 12px;
+}
+
+input[type=submit] {
+  float:right;
+}
+
+form {
+  width:290px;
+}
