@@ -8,17 +8,33 @@ function submitForm(name, hometown) {
   var guestlist = document.getElementById("guestlist");
   var n = document.getElementById("name");
   var h = document.getElementById("hometown");
-  var currentguestlist = localStorage.getItem("guestlist");
-  localStorage.setItem("guestlist", currentguestlist + "<li>" + name + ". " + hometown + "</li>");
+  //saveLocal(name, hometown);
+  saveRemote(name, hometown);
   guestlist.innerHTML += "<li>" + name + ". " + hometown + "</li>"; 
   n.value = "";
   h.value = "";
   n.focus();
   return false; 
 }
+
+function saveLocal(name, hometown){
+  var currentguestlist = localStorage.getItem("guestlist");
+  localStorage.setItem("guestlist", currentguestlist + "<li>" + name + ". " + hometown + "</li>");
+}
+
+function saveRemote(name, hometown){
+  $.get("save.php",{"name":name,"hometown":hometown});
+}
+
+
+
+
+
+
 function clearStorageGB() {
-  var guestlist = document.getElementById("guestlist");
-  guestlist.innerHTML = "";
+  //var guestlist = document.getElementById("guestlist");
+  //guestlist.innerHTML = "";
+  $("#guestlist").html("the guest list has been cleared.");
   localStorage.setItem("guestlist","");
 }
 
