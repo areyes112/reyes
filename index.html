@@ -8,14 +8,19 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-  <img width="400" src="Bulldog.jpeg" alt="Buxley the bulldog" title= "Buxley the Bulldog" />
-  <h1 onclick="headingAlert(this.innerHTML);" >Hello World</h1>
-  <h2 onclick="headingAlert(this.innerHTML);">How are you?</h2>
-  <p>I'm doing <b>great</b>.</p>
-  <h2 onclick="headingAlert(this.innerHTML);">Whats the weather like?</h2>
+<body onload="checkStorage()">
+  <img width="150" src="Bulldog.jpeg" alt="Buxley the bulldog" title= "Buxley the Bulldog" />
+  <h1>Hello World</h1>
+  <h2>How are you?</h2>
+  <form action="#" onsubmit="return submitAnswer(this.answer);">
+    <input id="answer" />
+    <input type="submit" value="Submit" />
+  </form>
+  <p id="answerlist"></p>
+  <a href="#" onclick="clearStorage(); return false;">reset answers</a>
+  <h2>Whats the weather like?</h2>
   <p>It's a little <em>chilly</em>, But nice</p>
-  <h3 onclick="headingAlert(this.innerHTML);">Goodbye!</h3>
+  <h3>Goodbye!</h3>
   <p><a href="guestbook.html"> Sign our Guestbook </a> before you leave </p>
   <script src= "script.js"></script>
  <!--
