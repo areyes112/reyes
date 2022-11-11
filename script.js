@@ -60,9 +60,9 @@ function clearStorage() {
   localStorage.setItem("answerlist","");
 }
 
-function checkStorage(){
+function checkStorage() {
   var answerlist = document.getElementById("answerlist");
-  var currentanswers = localStorage.setItem("answerlist");
+  var currentanswers = localStorage.getItem("answerlist");
   answerlist.innerHTML = currentanswers;
 }
 
