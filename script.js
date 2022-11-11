@@ -22,14 +22,24 @@ function saveLocal(name, hometown){
   localStorage.setItem("guestlist", currentguestlist + "<li>" + name + ". " + hometown + "</li>");
 }
 
-function saveRemote(name, hometown){
+function saveRemote() {
   $.get("save.php",{"name":name,"hometown":hometown});
 }
 
-
-
-
-
+function loadRemote(name, hometown){
+  $.get("load.php",{},function(data) { 
+    data = JSON.parse(data);
+    console.log(data);
+    console.log("row by row:");
+    var html = "";
+    for (var i in data) {
+      console.log(data[i]);
+      if (data [i])
+        html += "<li>" + data[i] + "</li>";
+    }
+    $("#guestlist").html(html);
+  });
+}
 
 function clearStorageGB() {
   //var guestlist = document.getElementById("guestlist");
