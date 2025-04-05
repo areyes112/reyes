@@ -54,7 +54,7 @@ FROM ads
 JOIN adcampaigns ON ads.id = adcampaigns.ad_id
 JOIN adcampaigncategories ON adcampaigns.id = adcampaigncategories.adcampaign_id
 WHERE adcampaigns.date_stop < now()
-AND ads.businesscustomer_id = ?
+AND ads.businesscustomer_id = 3
 GROUP BY ads.id;
 
 
@@ -63,7 +63,7 @@ FROM ads
 JOIN adcampaigns ON ads.id = adcampaigns.ad_id
 JOIN adcampaigncategories ON adcampaigns.id = adcampaigncategories.adcampaign_id
 WHERE now() BETWEEN adcampaigns.date_start AND adcampaigns.date_stop
-AND ads.businesscustomer_id = ?
+AND ads.businesscustomer_id = 3
 GROUP BY ads.id;
 
 
@@ -74,4 +74,4 @@ JOIN adcampaigncategories acc ON adcampaigns.id = adcampaigncategories.adcampaig
 WHERE (
     adcampaigns.date_stop < now()
     OR now() BETWEEN adcampaigns.date_start AND adcampaigns.date_stop
-) AND ads.businesscustomer_id = ?;
+) AND ads.businesscustomer_id = 3;
